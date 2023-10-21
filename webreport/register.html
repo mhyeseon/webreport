@@ -20,6 +20,9 @@
     .required {
       color: red;
     }
+    #btn {
+      margin-left: 200px
+    }
   </style>
 </head>
 <body>
@@ -83,11 +86,9 @@
   <div>
     <label for="attachment">첨부 파일</label>
     <input type="file" id="attachment" name="attachment"><br>
-    <span style="margin-left: 200px;">
-      <input type="submit" value="제출">
-      <input type="reset" value="재작성">
-    </span>
   </div>
+  <div id="btn"><input type="submit" value="제출">
+                <input type="reset" value="재작성"></div>
 </form>
 </body>
 </html>
