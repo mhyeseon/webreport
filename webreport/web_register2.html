@@ -12,81 +12,84 @@
   </style>
 </head>
 <body>
-<h2 class="container text-center">취업 정보 계정 만들기</h2>
-<hr>
+<h2 class="container-fluid text-center">취업 정보 계정 만들기</h2>
+<hr class="container">
 <p class="container"><span style="color: red;">*</span> 필수 입력 항목</p>
 
-
-<form method="post">
+<form action="submit_registration.php" method="post">
   <p class="container text-bg-primary">기본 정보</p>
 
   <div class="container">
     <div class="row">
       <div class="col-sm-5">
     <label for="name">이 름<span class="required">*</span></label>
-    <input type="text" id="name" name="name" size="8"><br>
+        <input type="text" id="name" name="name" class="form-control">
     <label for="email">이메일<span class="required">*</span></label>
-    <input type="email" id="email" name="email" size="15" placeholder="id@domain_name"><br>
+      <input type="email" id="email" name="email" class="form-control" placeholder="id@domain_name">
     <label for="pwd">암호<span class="required">*</span></label>
-    <input type="password" id="pwd" name="pwd" size="12"><br>
+      <input type="password" id="pwd" name="pwd" class="form-control">
     <label for="confirm_password">암호 확인<span class="required">*</span></label>
-    <input type="password" id="confirm_password" name="confirm_password" size="12"><br>
+      <input type="password" id="confirm_password" name="confirm_password" class="form-control">
     </div>
 
       <div class="col-sm-7">
     <label for="name">모바일 폰<span class="required">*</span></label>
-    <input type="tel" id="mobile" name="mobile" size="13" placeholder="010-0000-0000"><br>
+      <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="010-0000-0000">
     <label for="homepage">홈 페이지:</label>
-    <input type="url" id="homepage" name="homepage" size="30" placeholder="http://"><br>
+      <input type="url" id="homepage" name="homepage" class="form-control" placeholder="http://">
     <label for="address">주 소<span class="required">*</span></label>
-    <input id="address" name="address" size="30">
+      <input id="address" name="address" class="form-control">
       </div>
     </div>
   </div>
 
 
-  <p class="container text-bg-success">학 력</p>
+  <p class="container text-bg-success mt-5">학 력</p>
 
   <div class="container">
     <div class="row">
       <div class="col-sm-5">
     <label for="school">학교 명<span class="required">*</span></label>
-    <input type="text" id="school" name="school" size="12"><br>
+      <input type="text" id="school" name="school" class="form-control">
     <label for="major">전 공<span class="required">*</span></label>
-    <input type="text" id="major" name="major" size="12"><br>
-    </div>
+      <input type="text" id="major" name="major" class="form-control">
+      </div>
       <div class="col-sm-7">
     <label for="graduation_status">졸업 여부<span class="required">*</span></label>
-    <select id="graduation_status" name="graduation_status">
+      <select class="form-control" id="graduation_status" name="graduation_status">
       <option value="none">---선택---</option>
       <option value="expected">졸업예정</option>
       <option value="graduated">졸업</option>
-    </select><br>
+      </select>
     <label for="graduation_date">졸업(예정)년도</label>
-    <input type="date" id="graduation_date" name="graduation_date">
+      <input class="form-control" type="date" id="graduation_date" name="graduation_date">
       </div>
     </div>
   </div>
 
-  <p class="container text-bg-secondary">업무 경력</p>
+  <p class="container text-bg-secondary mt-5">업무 경력</p>
 
   <div class="container">
     <span>최종 직위</span>
-    <input type="radio" name="career" value="HTML">사원급
-    <input type="radio" name="career" value="HTML">대리 ~ 과장
-    <input type="radio" name="career" value="HTML">차장급 이상
-    <input type="radio" name="career" value="HTML">임원급
+    <input type="radio" name="career" value="HTML"> 사원급
+    <input type="radio" name="career" value="HTML"> 대리 ~ 과장
+    <input type="radio" name="career" value="HTML"> 차장급 이상
+    <input type="radio" name="career" value="HTML"> 임원급
   </div>
 
-  <p class="container">주요 담당 업무</p>
+  <p class="container mt-3">주요 담당 업무</p>
 
   <div class="container">
-    <textarea id="responsibilities" name="responsibilities" rows="10" cols="80"
-              placeholder="담당했던 주요 업무를 기술하시오."></textarea></div>
+    <div class="row">
+        <div class="col">
+            <textarea class="form-control" rows="10" placeholder="담당했던 주요 업무를 기술하시오."></textarea>
+        </div>
+    </div>
+  </div>
 
-     <div id="btn" class="container text-center">
-      <input type="submit" class="btn btn-primary" value="제출">
-      <input type="reset" class="btn btn-secondary" value="재작성">
+    <div class="button-container text-center">
+      <input type="submit" class="btn btn-outline-primary" value="제출">
+      <input type="reset" class="btn btn-outline-primary" value="재작성">
     </div>
 </form>
 </body>
