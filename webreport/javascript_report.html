@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,52 +8,55 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // id가 'digit'인 입력 요소의 값(2진수)을 읽어 16진수로 변환하여 그 수를 id가 'hexanum' 입력 요소의 값으로 디스플레이하는 함수
-    function transform() {
-    // 'digit' ID를 가진 입력 필드에서 값 가져오기
-        var binaryValue = document.getElementById('digit').value;
+        function transform() {
+            var binaryValue = document.getElementById('digit').value;
 
-    // 2진수를 10진수로 변환
-        var decimalValue = parseInt(binaryValue, 2);
+            var decimalValue = parseInt(binaryValue, 2);
+            var hexValue = decimalValue.toString(16).toUpperCase();
 
-    // 10진수를 16진수로 변환
-        var hexValue = decimalValue.toString(16);
-
-    // 'hexanum' ID를 가진 입력 필드에 결과 설정
-        document.getElementById('hexanum').value = hexValue;
-}
-
-        // id가 'size'd인 입력 요소의 값을 읽어 해당 크기의 파스칼 삼각형을 id가 'draw_area'인 영역에 그리는 기능의 함수
-        function pascals() {
-    // 'size' ID를 가진 입력 필드에서 값 가져오기
-                var triangleHeight = parseInt(document.getElementById('size').value);
-
-    // 파스칼 삼각형 생성
-            var triangle = generatePascalsTriangle(triangleHeight);
-
-    // 결과를 'draw_area' ID를 가진 요소에 표시
-            document.getElementById('draw_area').innerText = triangle.join('\n');
+            document.getElementById('hexanum').value = hexValue;
         }
 
-// 파스칼 삼각형을 생성하는 함수
-    function generatePascalsTriangle(height) {
-        var triangle = [];
+        // id가 'size'인 입력 요소의 값을 읽어 해당 크기의 파스칼 삼각형을 id가 'draw_area'인 영역에 그리는 기능의 함수
+        function pascals() {
+            var height = document.getElementById('size').value;
 
-        for (var i = 0; i < height; i++) {
-            var row = [];
-            for (var j = 0; j <= i; j++) {
-                if (j === 0 || j === i) {
-                    row.push(1);
-                } else {
-                    row.push(triangle[i - 1][j - 1] + triangle[i - 1][j]);
+            if (!(/^\d+$/.test(height)) || height < 1 || height > 20) {
+                alert("Please enter a valid positive integer between 1 and 20.");
+                return;
+            }
+
+            document.getElementById('draw_area').innerHTML = '';
+
+            var triangle = generatePascalsTriangle(height);
+
+            displayPascalsTriangle(triangle);
+        }
+
+        function generatePascalsTriangle(height) {
+            var triangle = [];
+            for (var i = 0; i < height; i++) {
+                triangle[i] = [];
+                for (var j = 0; j <= i; j++) {
+                    if (j === 0 || j === i) {
+                        triangle[i][j] = 1;
+                    } else {
+                        triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+                    }
                 }
             }
-            triangle.push(row);
+            return triangle;
         }
 
-        // 삼각형을 문자열 표현으로 변환
-        return triangle.map(row => row.join(' ')).join('\n');
-    }
-
+        function displayPascalsTriangle(triangle) {
+            var drawArea = document.getElementById('draw_area');
+            for (var i = 0; i < triangle.length; i++) {
+                var rowText = triangle[i].join(' ');
+                var rowElement = document.createElement('div');
+                rowElement.textContent = rowText;
+                drawArea.appendChild(rowElement);
+            }
+        }
     </script>
 </head>
 <body>
