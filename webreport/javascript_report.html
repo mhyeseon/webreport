@@ -21,11 +21,6 @@
         function pascals() {
             var height = document.getElementById('size').value;
 
-            if (!(/^\d+$/.test(height)) || height < 1 || height > 20) {
-                alert("Please enter a valid positive integer between 1 and 20.");
-                return;
-            }
-
             document.getElementById('draw_area').innerHTML = '';
 
             var triangle = generatePascalsTriangle(height);
